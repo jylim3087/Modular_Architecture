@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_16_close_green500.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
