@@ -23,5 +23,5 @@
 
 
 
-### 참구 문서
+### 참고 문서
 https://www.notion.so/station3inc/7f49f9edde66480bbc819c16f99c9fa2?pvs=4
