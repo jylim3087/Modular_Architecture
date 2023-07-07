@@ -30,6 +30,7 @@ let dependencies: [TargetDependency] =
                                     [
                                         .project(target: "Share", path: "../Share")
                                     ,   .project(target: "Core", path: "../Core")
+                                    ,   .project(target: "EtcModule", path: "../Feature/EtcModule")
                                     ]
 
 let project = Project.generate(dependencies: dependencies)
