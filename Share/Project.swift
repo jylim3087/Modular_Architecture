@@ -46,6 +46,7 @@ let project = Project(
             ],
             resources: [
                 "\(name)/**",
+                "\(name)/*.xcassets",
                 "DesignSystem/Colors/*.xcassets",
                 "DesignSystem/ImageAssets/*.xcassets",
             ],
