@@ -12,10 +12,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = SplashViewController()
-        
+        viewController.view.backgroundColor = .pink501
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
 
+        let t = DoubleTextInputView { config in
+            config.title = "Test"
+        }
+        
         return true
     }
 

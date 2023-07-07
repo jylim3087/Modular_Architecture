@@ -68,7 +68,8 @@ let project = Project(
                 .package(product: "Toaster"),
                 .package(product: "FlexLayout"),
                 .package(product: "PinLayout"),
-                .package(product: "Lottie")
+                .package(product: "Lottie"),
+                .package(product: "Gloss"),
             ]
         )
     ]
