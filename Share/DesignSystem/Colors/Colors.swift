@@ -82,5 +82,6 @@ extension UIColor {
     public class var pink100: UIColor  {return getColor(name: "pink100")}
     public class var pink200: UIColor  {return getColor(name: "pink200")}
     public class var pink500: UIColor  {return getColor(name: "pink500")}
-  
+    public class var pink501: UIColor  {return getColor(name: "pink500")}
+
 }

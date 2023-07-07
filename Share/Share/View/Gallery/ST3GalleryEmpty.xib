@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Lbq-tS-Z4V">
+            <rect key="frame" x="0.0" y="0.0" width="181" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="size" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-Sr-Isx">
+                    <rect key="frame" x="70.5" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="afv-id-edk"/>
+                        <constraint firstAttribute="width" constant="40" id="sJL-Pf-ViB"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esf-pH-7tg">
+                    <rect key="frame" x="0.0" y="53" width="181" height="28"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평면도 이미지를 준비중입니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpv-I5-olY">
+                            <rect key="frame" x="17" y="4" width="147" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Gws-dM-2PL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                            <color key="textColor" red="0.73333333329999995" green="0.73333333329999995" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Jpv-I5-olY" secondAttribute="trailing" constant="17" id="4Rz-CD-Hgw"/>
+                        <constraint firstItem="Jpv-I5-olY" firstAttribute="top" secondItem="Esf-pH-7tg" secondAttribute="top" constant="4" id="4ta-WF-FUF"/>
+                        <constraint firstAttribute="bottom" secondItem="Jpv-I5-olY" secondAttribute="bottom" constant="4" id="LR2-48-6AJ"/>
+                        <constraint firstItem="Jpv-I5-olY" firstAttribute="leading" secondItem="Esf-pH-7tg" secondAttribute="leading" constant="17" id="Rjh-2p-ZzQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Esf-pH-7tg" firstAttribute="leading" secondItem="Lbq-tS-Z4V" secondAttribute="leading" id="6nA-NZ-ydc"/>
+                <constraint firstAttribute="bottom" secondItem="Esf-pH-7tg" secondAttribute="bottom" id="9au-N1-9RW"/>
+                <constraint firstItem="CLe-Sr-Isx" firstAttribute="top" secondItem="Lbq-tS-Z4V" secondAttribute="top" id="G38-ex-A0g"/>
+                <constraint firstItem="CLe-Sr-Isx" firstAttribute="centerX" secondItem="Lbq-tS-Z4V" secondAttribute="centerX" id="cyY-ZT-RXl"/>
+                <constraint firstItem="Esf-pH-7tg" firstAttribute="top" secondItem="CLe-Sr-Isx" secondAttribute="bottom" constant="13" id="kr1-W8-I10"/>
+                <constraint firstAttribute="trailing" secondItem="Esf-pH-7tg" secondAttribute="trailing" id="odh-Bd-JXv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="uf7-d7-iVK"/>
+            <point key="canvasLocation" x="49" y="36"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="size" width="40" height="40"/>
+    </resources>
+</document>

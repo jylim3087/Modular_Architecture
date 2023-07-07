@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="ST3RetryView" customModule="DabangSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rk-WI-iNs">
+                    <rect key="frame" x="0.0" y="1" width="375" height="103.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-EC-y3k">
+                            <rect key="frame" x="20" y="53.5" width="335" height="50"/>
+                            <color key="backgroundColor" red="0.26274509800000001" green="0.51372549020000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Dg3-xI-OMx"/>
+                            </constraints>
+                            <state key="normal" title="재시도">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="actionTouchUpInsideButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="NCr-F3-UAc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dY2-4q-Sq2">
+                            <rect key="frame" x="40" y="0.0" width="295" height="33.5"/>
+                            <string key="text">데이터를 받아오는 것에 실패했습니다.
+다시 시도 해주세요.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.18823529410000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LWF-EC-y3k" firstAttribute="leading" secondItem="0rk-WI-iNs" secondAttribute="leading" constant="20" id="4Wj-TS-gpI"/>
+                        <constraint firstItem="dY2-4q-Sq2" firstAttribute="leading" secondItem="0rk-WI-iNs" secondAttribute="leading" constant="40" id="6Xl-xs-QuD"/>
+                        <constraint firstAttribute="trailing" secondItem="LWF-EC-y3k" secondAttribute="trailing" constant="20" id="He3-9N-SrP"/>
+                        <constraint firstAttribute="trailing" secondItem="dY2-4q-Sq2" secondAttribute="trailing" constant="40" id="Hh8-6i-kYx"/>
+                        <constraint firstItem="LWF-EC-y3k" firstAttribute="top" secondItem="dY2-4q-Sq2" secondAttribute="bottom" constant="20" id="KAI-ky-Whg"/>
+                        <constraint firstAttribute="bottom" secondItem="LWF-EC-y3k" secondAttribute="bottom" id="fCg-ro-h8X"/>
+                        <constraint firstItem="dY2-4q-Sq2" firstAttribute="top" secondItem="0rk-WI-iNs" secondAttribute="top" id="tx0-fK-JSY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0rk-WI-iNs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HMd-d5-KTd"/>
+                <constraint firstItem="0rk-WI-iNs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Mhz-co-NGH"/>
+                <constraint firstItem="0rk-WI-iNs" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="rsu-gP-LAN"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="button" destination="LWF-EC-y3k" id="VF3-Qe-bIq"/>
+                <outlet property="label" destination="dY2-4q-Sq2" id="01S-Cs-TiA"/>
+            </connections>
+            <point key="canvasLocation" x="-13.5" y="-0.5"/>
+        </view>
+    </objects>
+</document>

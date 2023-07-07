@@ -29,7 +29,8 @@ public struct Dependency {
             .package(url: "https://github.com/Juanpe/SkeletonView.git",             .exact("1.13.0")),
             .package(url: "https://github.com/fbdlrghks123/Toaster.git",            .branch("xcode12")),
             .package(url: "https://github.com/devxoul/Then.git",                    .exact("3.0.0")),
-            .package(url: "https://github.com/airbnb/lottie-ios.git",                    .exact("3.2.3"))
+            .package(url: "https://github.com/airbnb/lottie-ios.git",                    .exact("3.2.3")),
+            .package(url: "https://github.com/hkellaway/Gloss.git",                       .exact("3.2.1")),
         ]
     }
 
