@@ -8,40 +8,40 @@
 
 import UIKit
 
-class ST3AlertController {
-    typealias ActionHandler = (UIAlertAction) -> Void
+public class ST3AlertController {
+    public typealias ActionHandler = (UIAlertAction) -> Void
     var alertController : UIAlertController
     var presentingController : UIViewController? = nil
     var delayTime : Int? = nil
 
-    var title: String? {
+    public var title: String? {
         get { return alertController.title }
         set { alertController.title = newValue }
     }
-    var message : String? {
+    public var message : String? {
         get { return alertController.message }
         set { alertController.message = newValue }
     }
     
-    var configuredPopoverController = false
-    var tintColor : UIColor? {
+    public var configuredPopoverController = false
+    public var tintColor : UIColor? {
         didSet { if let tint = tintColor { alertController.view.tintColor = tint } }
     }
     
-    var hasRequiredTextField = false
-    var alertPrimaryAction : UIAlertAction?
+    public var hasRequiredTextField = false
+    public var alertPrimaryAction : UIAlertAction?
     
     public init(style: UIAlertController.Style) {
         self.alertController = UIAlertController(title: nil, message: nil, preferredStyle: style)
     }
     
     @discardableResult
-    func addAction(_ title: String, style: UIAlertAction.Style, handler: ActionHandler? = nil) -> ST3AlertController {
+    public func addAction(_ title: String, style: UIAlertAction.Style, handler: ActionHandler? = nil) -> ST3AlertController {
         return addAction(title, style: style, preferredAction: false, handler: handler)
     }
     
     @discardableResult
-    func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool = false, handler: ActionHandler? = nil) -> ST3AlertController {
+    public func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool = false, handler: ActionHandler? = nil) -> ST3AlertController {
         var action: UIAlertAction
         if let handler = handler {
             action = UIAlertAction(title: title, style: style, handler: handler)
@@ -60,17 +60,17 @@ class ST3AlertController {
         return self
     }
     
-    func presentIn(_ source: UIViewController) -> ST3AlertController {
+    public func presentIn(_ source: UIViewController) -> ST3AlertController {
         presentingController = source
         return self
     }
     
-    func setDelay(_ time: Int) -> ST3AlertController {
+    public func setDelay(_ time: Int) -> ST3AlertController {
         delayTime = time
         return self
     }
     
-    func show(animated: Bool = true, completion: (() -> Void)? = nil ) {
+    public func show(animated: Bool = true, completion: (() -> Void)? = nil ) {
         if let time = delayTime {
             setTimeout(after: time, execute: { self.show(animated: animated, completion: completion) })
             delayTime = nil
@@ -99,12 +99,12 @@ class ST3AlertController {
         }
     }
     
-    func getAlertController() -> UIAlertController { return self.alertController }
+    public func getAlertController() -> UIAlertController { return self.alertController }
 }
 
-class Alert : ST3AlertController {
+public class Alert : ST3AlertController {
 
-    init(title: String? = nil, message: String? = nil, alignment: NSTextAlignment? = nil) {
+    public init(title: String? = nil, message: String? = nil, alignment: NSTextAlignment? = nil) {
         super.init(style: .alert)
         self.title = title ?? (message == nil ? nil : "")
         self.message = message
@@ -126,20 +126,20 @@ class Alert : ST3AlertController {
     }
     
     @discardableResult
-    func addAction(_ title: String) -> Alert { return addAction(title, style: .default, preferredAction: false, handler: nil) }
+    public func addAction(_ title: String) -> Alert { return addAction(title, style: .default, preferredAction: false, handler: nil) }
     
     @discardableResult
-    override func addAction(_ title: String, style: UIAlertAction.Style, handler: ActionHandler? = nil) -> Alert {
+    public override func addAction(_ title: String, style: UIAlertAction.Style, handler: ActionHandler? = nil) -> Alert {
         return addAction(title, style: style, preferredAction: false, handler: handler)
     }
     
     @discardableResult
-    override func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool, handler: ActionHandler? = nil) -> Alert {
+    public override func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool, handler: ActionHandler? = nil) -> Alert {
         return super.addAction(title, style: style, preferredAction: preferredAction, handler: handler) as? Alert ?? self
     }
     
     @discardableResult
-    func addTextField(_ textField: inout UITextField, required: Bool = false) -> Alert {
+    public func addTextField(_ textField: inout UITextField, required: Bool = false) -> Alert {
         var field : UITextField?
         alertController.addTextField { [unowned textField] (tf: UITextField) in
             tf.text = textField.text
@@ -164,21 +164,21 @@ class Alert : ST3AlertController {
     }
     
     @discardableResult
-    override func presentIn(_ source: UIViewController) -> Alert { return super.presentIn(source) as? Alert ?? self }
+    override public func presentIn(_ source: UIViewController) -> Alert { return super.presentIn(source) as? Alert ?? self }
     @discardableResult
-    override func setDelay(_ time: Int) -> Alert { return super.setDelay(time) as? Alert ?? self }
+    override public func setDelay(_ time: Int) -> Alert { return super.setDelay(time) as? Alert ?? self }
     @discardableResult
-    func tint(_ color: UIColor) -> Alert {
+    public func tint(_ color: UIColor) -> Alert {
         self.tintColor = color
         return self
     }
-    func showOkay() {
+    public func showOkay() {
         super.addAction("확인", style: .cancel, preferredAction: false, handler: nil)
         show()
     }
 }
 
-class ActionSheet : ST3AlertController {
+public class ActionSheet : ST3AlertController {
     init(title: String? = nil, message: String? = nil) {
         super.init(style: .actionSheet)
         self.title = title ?? (message == nil ? nil : "")
@@ -186,23 +186,23 @@ class ActionSheet : ST3AlertController {
     }
     
     @discardableResult
-    func addAction(_ title: String) -> ActionSheet { return addAction(title, style: .cancel, handler: nil) }
+    public func addAction(_ title: String) -> ActionSheet { return addAction(title, style: .cancel, handler: nil) }
 
     @discardableResult
-    override func addAction(_ title: String, style: UIAlertAction.Style, handler: ST3AlertController.ActionHandler?) -> ActionSheet {
+    public override func addAction(_ title: String, style: UIAlertAction.Style, handler: ST3AlertController.ActionHandler?) -> ActionSheet {
         return addAction(title, style: style, preferredAction: false, handler: handler)
     }
     
     @discardableResult
-    override func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool, handler: ST3AlertController.ActionHandler?) -> ActionSheet {
+    public override func addAction(_ title: String, style: UIAlertAction.Style, preferredAction: Bool, handler: ST3AlertController.ActionHandler?) -> ActionSheet {
         return super.addAction(title, style: style, preferredAction: false, handler: handler) as? ActionSheet ?? self
     }
     
     @discardableResult
-    override func presentIn(_ source: UIViewController) -> ActionSheet { return super.presentIn(source) as? ActionSheet ?? self }
+    public override func presentIn(_ source: UIViewController) -> ActionSheet { return super.presentIn(source) as? ActionSheet ?? self }
     
     @discardableResult
-    override func setDelay(_ time: Int) -> ActionSheet { return super.setDelay(time) as? ActionSheet ?? self }
+    public override func setDelay(_ time: Int) -> ActionSheet { return super.setDelay(time) as? ActionSheet ?? self }
     
     @discardableResult
     func setTint(_ color: UIColor) -> ActionSheet {

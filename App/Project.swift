@@ -28,8 +28,8 @@ import MyPlugin
 
 let dependencies: [TargetDependency] =
                                     [
-                                        .project(target: "Share", path: "../Share") // Share 프레임워크 추가
-
+                                        .project(target: "Share", path: "../Share")
+                                    ,   .project(target: "Core", path: "../Core")
                                     ]
 
 let project = Project.generate(dependencies: dependencies)

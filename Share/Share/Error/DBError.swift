@@ -24,7 +24,7 @@ public enum DBErrors : Error {
 }
 
 extension DBErrors {
-    var description : String {
+    public var description : String {
         switch self {
         case .ParseError:
             return "데이터 처리 중 오류가 발생하였습니다."
@@ -45,7 +45,7 @@ extension DBErrors {
         }
     }
     
-    var api: ST3NetworkServiceAPI? {
+    public var api: ST3NetworkServiceAPI? {
         switch self {
         case .NetworkError(let api, _, _, _, _, _, _):
             return api
@@ -54,11 +54,11 @@ extension DBErrors {
         }
     }
     
-    var localizedDescription: String {
+    public var localizedDescription: String {
         return self.description
     }
     
-    var needRetry: Bool {
+    public var needRetry: Bool {
         switch self {
         case .NetworkError(_, let code, _, _, _, _, _):
             return code <= 0 ? true : false
@@ -67,7 +67,7 @@ extension DBErrors {
         }
     }
     
-    func log() {
+    public func log() {
         switch self {
         case .ParseError(let path, let line, let function),
              .FileLoadError(let path, let line, let function),
@@ -86,7 +86,7 @@ extension DBErrors {
         }
     }
     
-    func showAlertWithTitle(_ title:String?, path: String = #file, lineNumber: Int = #line, function: String = #function) {
+    public func showAlertWithTitle(_ title:String?, path: String = #file, lineNumber: Int = #line, function: String = #function) {
         self.log()
         if !UserDefaults.standard.bool(forKey: DBERROR_ALERT_KEY) {
             UserDefaults.standard.set(true, forKey: DBERROR_ALERT_KEY)
@@ -96,27 +96,27 @@ extension DBErrors {
         
     }
     
-    static func parse(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func parse(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.ParseError(path: path, line: line, function: function)
     }
     
-    static func fileload(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func fileload(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.FileLoadError(path: path, line: line, function: function)
     }
     
-    static func requireLogin(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func requireLogin(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.RequireLoginError(path: path, line: line, function: function)
     }
     
-    static func parameterEncoding(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func parameterEncoding(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.ParameterEncodingError(path: path, line: line, function: function)
     }
     
-    static func notAuthrized(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func notAuthrized(path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.NotAuthorizeError(path: path, line: line, function: function)
     }
     
-    static func network(api:ST3NetworkServiceAPI?, code: Int, message: String?, data: Any? = nil, path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
+    static public func network(api:ST3NetworkServiceAPI?, code: Int, message: String?, data: Any? = nil, path: String = #file, line: Int = #line, function: String = #function) -> DBErrors {
         return DBErrors.NetworkError(api: api, code: code, message: message, data: data, path: path, line: line, function: function)
     }
 }
