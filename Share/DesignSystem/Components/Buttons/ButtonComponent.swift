@@ -11,7 +11,7 @@ import RxCocoa
 import FlexLayout
 import Then
 
-protocol NewButtonComponentable: UIControl {
+public protocol NewButtonComponentable: UIControl {
     var imageAlignment: ButtonIconAlignment { set get }
     
     func setTitle(_ title: String?, for: UIControl.State)
@@ -41,7 +41,7 @@ public class ButtonComponent: UIControl, NewButtonComponentable {
         }
     }
     
-    var imageAlignment: ButtonIconAlignment = .left {
+    public var imageAlignment: ButtonIconAlignment = .left {
         didSet {
             setDirection()
             setNeedsLayout()
@@ -155,7 +155,7 @@ extension ButtonComponent {
         titleLabel.flex.markDirty()
     }
     
-    private func setImage() {
+    public func setImage() {
         let normal = images[UIControl.State.normal.rawValue]
         
         if !isEnabled, let disabled = images[UIControl.State.disabled.rawValue] {
@@ -191,14 +191,14 @@ extension ButtonComponent {
 // MARK: - NewButtonCompotable
 
 extension ButtonComponent {
-    func setTitle(_ title: String?, for: UIControl.State) {
+    public func setTitle(_ title: String?, for: UIControl.State) {
         titles[`for`.rawValue] = title
         
         setStyle()
         setNeedsLayout()
     }
     
-    func setImage(_ image: UIImage?, for: UIControl.State) {
+    public func setImage(_ image: UIImage?, for: UIControl.State) {
         images[`for`.rawValue] = image
         
         setStyle()
@@ -212,9 +212,9 @@ extension Reactive where Base: ButtonComponent {
     }
 }
 
-class ButtonComponentXLarge: ButtonComponent, NewButtonIconSupportable, NewGrayLineButtonStyle, ButtonXLargeHeightSupportable {}
+public class ButtonComponentXLarge: ButtonComponent, NewButtonIconSupportable, NewGrayLineButtonStyle, ButtonXLargeHeightSupportable {}
 
-protocol NewButtonTitleSupportable: NewButtonComponentable {
+public protocol NewButtonTitleSupportable: NewButtonComponentable {
     var enableTitleColor: UIColor { get }
     var disableTitleColor: UIColor { get }
     
@@ -222,7 +222,7 @@ protocol NewButtonTitleSupportable: NewButtonComponentable {
 }
 
 extension NewButtonTitleSupportable {
-    func setTitle(_ title: String) {
+    public func setTitle(_ title: String) {
         setTitle(title, for: .normal)
     }
 }
@@ -232,7 +232,7 @@ protocol NewButtonIconSupportable: NewButtonComponentable {
 }
 
 extension NewButtonIconSupportable {
-    func setIcon(_ icon: UIImage?, _ alignment: ButtonIconAlignment = .left) {
+    public func setIcon(_ icon: UIImage?, _ alignment: ButtonIconAlignment = .left) {
         setImage(icon, for: .normal)
         imageAlignment = alignment
     }
@@ -248,8 +248,8 @@ extension NewBlueLineButtonTitleSupportable {
 protocol NewGrayLineButtonTitleSupportable: NewButtonTitleSupportable {}
 
 extension NewGrayLineButtonTitleSupportable {
-    var enableTitleColor: UIColor { .gray900 }
-    var disableTitleColor: UIColor { .gray500 }
+    public var enableTitleColor: UIColor { .gray900 }
+    public var disableTitleColor: UIColor { .gray500 }
 }
 
 protocol NewBlueLineButtonStyle: BlueLineButtonComponentable, NewBlueLineButtonTitleSupportable {}

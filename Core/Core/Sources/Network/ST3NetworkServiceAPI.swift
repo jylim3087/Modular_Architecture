@@ -14,26 +14,26 @@ import Gloss
 import Kingfisher
 import Share
 
-//#if ServerChange
-//var baseServer: ST3Server {
-//    get {
-//        if let defaultData = ST3Server(rawValue: UserDefaults.standard.integer(forKey: "server")) { return defaultData }
-//        return .test
-//    }
-//    set {
-//        UserDefaults.standard.set(newValue.rawValue, forKey: "server")
-//    }
-//}
-//#else
-//var baseServer: ST3Server = .release
-//#endif
-//
-//var ST3ServerPath = baseServer.url
-//
-//var ST3TermsServerPath = "https://main.d3qjzrynlab66o.amplifyapp.com"
-//var ST3ImageServerPath = baseServer == .test ? "https://s3-ap-northeast-1.amazonaws.com/dabang-dev-image" : "http://images.dabangapp.com"
-//var ST3ImageUploadServerPath = "https://upload-images.dabangapp.com"
-//var ST3WebBasePath = baseServer.web
+#if ServerChange
+var baseServer: ST3Server {
+    get {
+        if let defaultData = ST3Server(rawValue: UserDefaults.standard.integer(forKey: "server")) { return defaultData }
+        return .test
+    }
+    set {
+        UserDefaults.standard.set(newValue.rawValue, forKey: "server")
+    }
+}
+#else
+var baseServer: ST3Server = .release
+#endif
+
+var ST3ServerPath = baseServer.url
+
+var ST3TermsServerPath = "https://main.d3qjzrynlab66o.amplifyapp.com"
+var ST3ImageServerPath = baseServer == .test ? "https://s3-ap-northeast-1.amazonaws.com/dabang-dev-image" : "http://images.dabangapp.com"
+var ST3ImageUploadServerPath = "https://upload-images.dabangapp.com"
+var ST3WebBasePath = baseServer.web
 //
 var apiMetaData: [String: Any] = {
     var param: [String: Any] = [:]

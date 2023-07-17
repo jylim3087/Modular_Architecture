@@ -1,5 +1,7 @@
 import UIKit
 import Share
+import EtcModule
+import Then
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,14 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = SplashViewController()
-        viewController.view.backgroundColor = .pink501
+        let viewController = EtcMainViewController()
+        viewController.reactor = EtcMainViewReactor()
+        
+        viewController.view.backgroundColor = .white
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
-
-        let t = DoubleTextInputView { config in
-            config.title = "Test"
-        }
         
         return true
     }

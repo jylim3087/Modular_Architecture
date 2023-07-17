@@ -6,7 +6,7 @@
 //
 import UIKit
 
-enum ButtonIconAlignment {
+public enum ButtonIconAlignment {
     case left
     case right
     case top
@@ -19,7 +19,7 @@ extension ButtonIconAlignment {
     }
 }
 
-protocol ButtonIconSupportable: UIButton {
+public protocol ButtonIconSupportable: UIButton {
     func setIcon(_ icon: UIImage?, _ alignment: ButtonIconAlignment)
     
 //    add
@@ -27,7 +27,7 @@ protocol ButtonIconSupportable: UIButton {
 }
 
 extension ButtonIconSupportable {
-    func setIcon(_ icon: UIImage?, _ alignment: ButtonIconAlignment = .left) {
+    public func setIcon(_ icon: UIImage?, _ alignment: ButtonIconAlignment = .left) {
         setImage(icon, for: .normal)
         
         if alignment == .right {

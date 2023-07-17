@@ -14,7 +14,7 @@ protocol ButtonTitleSupportable: UIButton {
 }
 
 extension ButtonTitleSupportable {
-    func setTitle(_ title: String) {
+    public func setTitle(_ title: String) {
         setTitle(title, for: .normal)
     }
 }

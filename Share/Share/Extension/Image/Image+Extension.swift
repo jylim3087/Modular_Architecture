@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    static func getImage(name: String) -> UIImage? {
+    public static func readAssetFromShare(name: String) -> UIImage? {
         return UIImage(named: name, in: Bundle(for: Share.ShareResources.self), compatibleWith: nil)
     }
 }
