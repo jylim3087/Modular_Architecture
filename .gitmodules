@@ -1,0 +1,3 @@
+[submodule "DesignSystem"]
+	path = DesignSystem
+	url = git@github.com:station3/dabang-ios-design-system.git
